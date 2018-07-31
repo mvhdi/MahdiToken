@@ -27,9 +27,9 @@
   "sourceMap": "56:414:0:-;;;302:166;8:9:-1;5:2;;;30:1;27;20:12;5:2;302:166:0;456:7;442:11;:21;;;;56:414;;;;;;",
   "deployedSourceMap": "56:414:0:-;;;;;;;;;;;;;;;;;;;;;;;;185:26;;8:9:-1;5:2;;;30:1;27;20:12;5:2;185:26:0;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
   "source": "// version\npragma solidity ^0.4.2;\n\n// declare contract\ncontract MahdiToken {\n\n\t//test to ensure it was created properly\n\t//set the number of tokens and read them back\n\t//constuctor\n\t\n\tuint256 public totalSupply; //declare the state variable, public variable so solidity\n\t// provides getter variable\n\n\tfunction MahdiToken() public {\n\n\t\t// state variable, writes to blockchain, \n\t\t// name comes from rc20 standard and is a required function\n\t\ttotalSupply = 1000000;\n\n\t}\n}",
-  "sourcePath": "/Users/mahdi/Desktop/MahdiToken/MahdiToken_sale/contracts/MahdiToken.sol",
+  "sourcePath": "/Users/mahdi/Desktop/MahdiToken/contracts/MahdiToken.sol",
   "ast": {
-    "absolutePath": "/Users/mahdi/Desktop/MahdiToken/MahdiToken_sale/contracts/MahdiToken.sol",
+    "absolutePath": "/Users/mahdi/Desktop/MahdiToken/contracts/MahdiToken.sol",
     "exportedSymbols": {
       "MahdiToken": [
         12
@@ -182,7 +182,7 @@
     "src": "11:459:0"
   },
   "legacyAST": {
-    "absolutePath": "/Users/mahdi/Desktop/MahdiToken/MahdiToken_sale/contracts/MahdiToken.sol",
+    "absolutePath": "/Users/mahdi/Desktop/MahdiToken/contracts/MahdiToken.sol",
     "exportedSymbols": {
       "MahdiToken": [
         12
