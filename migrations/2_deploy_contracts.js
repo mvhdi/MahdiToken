@@ -3,5 +3,6 @@
 var MahdiToken = artifacts.require("./MahdiToken.sol");
 
 module.exports = function(deployer) {
-  deployer.deploy(MahdiToken);
+	// the subsicent arguments after MahdiToken are passed into the consturctor of MahdiToken
+  deployer.deploy(MahdiToken, 1000000);
 };
