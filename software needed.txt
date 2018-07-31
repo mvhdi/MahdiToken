@@ -1,0 +1,7 @@
+
+What you need to download
+Node js
+https://truffleframework.com/
+https://truffleframework.com/ganache
+Metamask
+https://packagecontrol.io/packages/Ethereum
