@@ -6,7 +6,23 @@ var MahdiToken = artifacts.require("./MahdiToken.sol");
 //initalize, function gives the accounts availabe
 contract('MahdiToken', function(accounts) {
 
-	it('upon deployment set the total supply',function() {
+	it('initalizes the contract with the correct values', function() {
+		return MahdiToken.deployed().then(function(instance) {
+			tokenInstance = instance;
+			return tokenInstance.name();
+		}).then(function(name) {
+			assert.equal(name, 'MahdiToken', 'has the correct name');
+			return tokenInstance.symbol();
+		}).then(function(symbol) {
+			assert.equal(symbol, 'MAHDI', 'has the correct symbol')
+			return tokenInstance.standard();
+		}).then(function(standard) {
+			assert.equal(standard, "MahdiToken v1.0", 'has the correct standard');
+
+		});
+	})
+
+	it('upon deployment allocates the inital supply',function() {
 		return MahdiToken.deployed().then(function(instance) {
 			tokenInstance = instance;
 			return tokenInstance.totalSupply();

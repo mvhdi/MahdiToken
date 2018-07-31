@@ -3,10 +3,17 @@ pragma solidity ^0.4.2;
 
 // declare contract
 contract MahdiToken {
-
-	//test to ensure it was created properly
-	//set the number of tokens and read them back
 	//constuctor
+
+	// Name
+	string public name ="MahdiToken";
+
+	// Symbol
+	string public symbol ="MAHDI";
+
+	//standard
+	string public standard ="MahdiToken v1.0";
+
 	
 	uint256 public totalSupply; //declare the state variable, public variable so solidity
 	// provides getter variable
@@ -24,10 +31,8 @@ contract MahdiToken {
 		// msg.sender is the sender of the message (current call)
 		balanceOf[msg.sender] = _initalSupply;
 
-
 		// set the number of inital coins
 		totalSupply = _initalSupply;
-
 		
 	}
 }
