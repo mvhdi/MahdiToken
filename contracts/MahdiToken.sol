@@ -18,21 +18,44 @@ contract MahdiToken {
 	uint256 public totalSupply; //declare the state variable, public variable so solidity
 	// provides getter variable
 
+	// transfer event
+	event Transfer(
+		address indexed _from, 
+		address indexed _to, 
+		uint256 _value
+	);
+
 
 	// declare public cariable that gives us a reader function 
 	//declare a map, key is owner's address, with value being the account's balance 
 	mapping(address => uint256) public balanceOf;
 
-
-
 	function MahdiToken(uint256 _initalSupply) public {
-
 		// Returns the account balance of an account with the given address
 		// msg.sender is the sender of the message (current call)
 		balanceOf[msg.sender] = _initalSupply;
 
 		// set the number of inital coins
-		totalSupply = _initalSupply;
-		
+		totalSupply = _initalSupply;		
 	}
+
+
+
+	function transfer(address _to, uint256  _value) public returns (bool success) {
+
+	// trigger exception if the account balnce too low 
+	require(balanceOf[msg.sender] >= _value);
+
+	// Transfers MahdiToken  
+	balanceOf[msg.sender] -= _value;
+	balanceOf[_to] += _value;
+
+	//trigger a Transfer event
+	Transfer(msg.sender, _to, _value);
+
+	// return a boolean if above code worked
+	return true;
+
+	}
+
 }
