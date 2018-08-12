@@ -1,6 +1,5 @@
 // Version
 pragma solidity ^0.4.2;
-
 // declares the  contract
 //constuctor
 contract MahdiToken {
@@ -25,14 +24,11 @@ contract MahdiToken {
 		address indexed _spender,
 		uint256 _value
 	);
-
 	// declare public variable that gives us a reader function 
 	//declare a map, key is owner's address, with value being the account's balance 
 	mapping(address => uint256) public balanceOf;
-
 	// allowance 
 	mapping(address => mapping(address => uint256)) public allowance;
-
 	function MahdiToken(uint256 _initalSupply) public {
 		// Returns the account balance of an account with the given address
 		// msg.sender is the sender of the message (current call)
@@ -52,20 +48,28 @@ contract MahdiToken {
 	// return a boolean if above code worked
 	return true;
 	}
-
 	// approve function
 	function approve(address _spender, uint256 _value) public returns (bool success) {
 		// handles the allowance
 		allowance[msg.sender][_spender] = _value;
-
 		// approve event
 		Approval(msg.sender, _spender, _value);
-
 		return true;
 	}
-
 	// transferFrom function
-
-	//
-
+	function transferFrom(address _from, address _to, uint256 _value) public returns (bool success){
+		// require _from has enough tokens
+		require(_value <= balanceOf[_from]);
+		// require allowance is big enough
+		require(_value <= allowance[_from][msg.sender]);
+		// Change the balance
+		balanceOf[_from] -= _value;
+		balanceOf[_to] += _value;
+		// update the allowance
+		allowance[_from][msg.sender] -= _value;
+		// Call Transfer event
+		Transfer(_from, _to, _value);
+		// return a boolean
+		return true;
+	}	
 }
