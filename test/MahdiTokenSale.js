@@ -6,10 +6,13 @@ var MahdiToken= artifacts.require("./MahdiToken.sol");
 
 //tests
 contract('MahdiTokenSale', function(accounts) {
+	var tokenInstance;
 	var tokenSaleInstance;
+	var admin = accounts[0];
 	var buyer = accounts[1];
 
 	var tokenPrice = 1000000000000000000 ;  // in wei subdivison of ether, equal to .001 eth
+	var tokensAvailable = 750000;
 	var numberOfTokens;
 // test to ensure correct initalization 
 	it('initialze the contract with correct values', function() {
@@ -17,7 +20,7 @@ contract('MahdiTokenSale', function(accounts) {
 			tokenSaleInstance = instance;
 			return tokenSaleInstance.address
 		}).then(function(address) {
-			// tests address & MahditokenSale contract exists
+			// tests address & MahdiTokenSale contract exists
 			assert.notEqual(address, 0x0, 'has address');
 			return tokenSaleInstance.tokenContract();
 			//test toekn contract has been assigned
@@ -32,8 +35,18 @@ contract('MahdiTokenSale', function(accounts) {
 
 	//test token buy function 
 	it('faciliates token buying', function() {
-		return MahdiTokenSale.deployed().then(function(instance) {
+		return MahdiToken.deployed().then(function(instance) {
+			// grab token instance first
+			tokenInstance = instance;
+			return MahdiTokenSale.deployed();
+		}).then(function(instance) {
+			// the ngrab token sale instance
 			tokenSaleInstance = instance;
+			// provison 75% of all tokens to token sale
+			return tokenInstance.transfer(tokenSaleInstance.address, tokensAvailable, {from: admin })
+		}).then(function(receipt) {
+
+
 			numberOfTokens = 10;
 			return tokenSaleInstance.buyTokens(numberOfTokens, { from: buyer, value: numberOfTokens * tokenPrice })
 			// test to make sure Sell event is triggred
@@ -46,11 +59,20 @@ contract('MahdiTokenSale', function(accounts) {
 			// tests that the number of tokes sold is incremented
 		}).then(function(amount) {
 			assert.equal(amount.toNumber(), numberOfTokens, 'increment the number of tokens sold ');
+			return tokenInstance.balanceOf(buyer);
+		}).then(function(balance) {
+			assert.equal(balance.toNumber(), numberOfTokens);
+			return tokenInstance.balanceOf(tokenSaleInstance.address);
+		}).then(function(balance) {
+			assert.equal(balance.toNumber(), tokensAvailable - numberOfTokens);
 			// test for when you try to buy tokens different from the ether value, should prevent a rip off of underpaying or overpaying
 			return tokenSaleInstance.buyTokens(numberOfTokens, { from: buyer, value: 1 });
 		}).then(assert.fail).catch(function(error) {
 			assert(error.message.indexOf('revert') >= 0, 'msg.value must equal number of tokens in wei');
-		}) ;
+			return tokenSaleInstance.buyTokens(800000, { from: buyer, value: 1 });
+		}).then(assert.fail).catch(function(error) {
+			assert(error.message.indexOf('revert') >= 0, 'cannot purchase more tokens than available');
+		});
 	});
 
 

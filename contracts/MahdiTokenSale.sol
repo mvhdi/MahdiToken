@@ -41,8 +41,9 @@ contract MahdiTokenSale {
 		// require the value to be = tokens
 		require(msg.value == multiply(_numberOfTokens,tokenPrice));
 		// require that the contract has enough tokens
+		require(tokenContract.balanceOf(this) >= _numberOfTokens);
 		// require that a transfer is successful
-		
+		require(tokenContract.transfer(msg.sender, _numberOfTokens));
 		// keep track of the # of tokens sold
 		tokensSold += _numberOfTokens;
 
