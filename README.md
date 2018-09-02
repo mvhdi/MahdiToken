@@ -6,3 +6,4 @@ Token cryptocurrency built upon the Ethereum blockchain, using an Ethereum smart
 The complete ERC20 token is implemented in the file mahdi.token/contracts/MahdiToken.sol, and the tests for this token are in the file mahdi.token/test/MahdiToken.js . 
 
 
+[Writing tests for Solidity](https://truffleframework.com/docs/truffle/testing/writing-tests-in-javascript)
