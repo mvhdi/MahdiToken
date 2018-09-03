@@ -41,6 +41,8 @@ contract MahdiTokenSale {
 		// require the value to be = tokens
 		require(msg.value == multiply(_numberOfTokens,tokenPrice));
 		// require that the contract has enough tokens
+
+		// this refers to the smart contract address
 		require(tokenContract.balanceOf(this) >= _numberOfTokens);
 		// require that a transfer is successful
 		require(tokenContract.transfer(msg.sender, _numberOfTokens));
@@ -52,5 +54,18 @@ contract MahdiTokenSale {
 
 	}
 
+	// function ends the MahdiTokenSale
+
+	function endSale() public {
+		// require only admin can use this function
+		require(msg.sender == admin);
+		//return unsold tokens to the admin account
+		require(tokenContract.transfer(admin, tokenContract.balanceOf(this)));
+		// deactivate this contract (called sefl-destruct aka suicide in Solidity)
+		// instead transfer the balance to the admin, issues with solidity's self destruct method
+		admin.transfer(address(this).balance);
+		// selfdestruct(admin);
+
+	}
 
 }

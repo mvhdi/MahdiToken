@@ -75,10 +75,34 @@ contract('MahdiTokenSale', function(accounts) {
 		});
 	});
 
+// tests the endSale function
+	it('end token sale', function() {
+		return MahdiToken.deployed().then(function(instance) {
+			tokenInstance = instance;
+			return MahdiTokenSale.deployed();
+
+		}).then(function(instance) {
+			tokenSaleInstance = instance;
+			// try to end the sale from a non admin account
+			return tokenSaleInstance.endSale({ from: buyer });
+
+		}).then(assert.fail).catch(function(error) {
+
+			assert(error.message.indexOf('revert' >=0, 'must be admin to end sale'));
+			// end sale as admin
+			return tokenSaleInstance.endSale({ from: admin });
 
 
+		}).then(function(receipt) {
+			return tokenInstance.balanceOf(admin);
 
+		}).then(function(balance) {
+			assert.equal(balance.toNumber(), 999990, 'returns all unsold MahdiTokens to admin');
 
+			// Check that the contract has no balance
+      		balance = web3.eth.getBalance(tokenSaleInstance.address)
+      		assert.equal(balance.toNumber(), 0);
 
-
+		}) ;
+	});
 });
