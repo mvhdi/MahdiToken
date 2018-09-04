@@ -1,4 +1,3 @@
-// Version
 pragma solidity ^0.4.2;
 
 // imports the token that is going to be sold
