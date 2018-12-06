@@ -30,12 +30,23 @@ App = {
     initContracts: function() {
         // load the token sale contract
         $.getJSON("MahdiTokenSale.json", function(mahdiTokenSale){
-            console.log(mahdiTokenSale);
+            // console.log(mahdiTokenSale);
             // truffleContract reads our smart contract
+            // MahdiTokenSale is defined in our migrations folder
             App.contracts.MahdiTokenSale = TruffleContract(mahdiTokenSale);
             App.contracts.MahdiTokenSale.setProvider(App.web3Provider);
             App.contracts.MahdiTokenSale.deployed().then(function(mahdiTokenSale) {
-                console.log("Mahdi Token Sale Address", mahdiTokenSale.address);
+                console.log("Mahdi Token Sale Address: ", mahdiTokenSale.address);
+            });
+        }).done(function() {
+            // load the token
+            $.getJSON("MahdiToken.json", function(mahdiToken) {
+                App.contracts.MahdiToken = TruffleContract(mahdiToken);
+                App.contracts.MahdiToken.setProvider(App.web3Provider);
+                App.contracts.MahdiToken.deployed().then(function(mahdiToken) {
+                    console.log("Mahdi Token Address: ", mahdiToken.address);
+                });
+            
             });
 
         })
