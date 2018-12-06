@@ -1,7 +1,26 @@
 
 What you need to download
 Node js
+node-modules - npm
+
+Web3 https://github.com/ethereum/web3.js/
+
 https://truffleframework.com/
 https://truffleframework.com/ganache
-Metamask
+Metamask https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en
+
 https://packagecontrol.io/packages/Ethereum
+
+Lite server
+
+change network to custon rpc HTTP://127.0.0.1:7545 (or what ganache is running on )
+Then import an account and import the private key, and choose a private key from ganache
+
+
+
+
+What to run:
+truffle compile
+truffle migrate
+Truffle test
+npm run dev

@@ -1,5 +1,7 @@
+// Version
 pragma solidity ^0.4.2;
 // declares the  contract
+//constuctor
 contract MahdiToken {
 	// Name
 	string public name ="MahdiToken";
