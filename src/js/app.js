@@ -2,6 +2,7 @@
 App = {
     web3Provider: null,
     contracts: {},
+    account: '0x0',
 
 
     init: function(){
@@ -46,15 +47,24 @@ App = {
                 App.contracts.MahdiToken.deployed().then(function(mahdiToken) {
                     console.log("Mahdi Token Address: ", mahdiToken.address);
                 });
-            
+                return App.render(); 
             });
-
         })
+    },
 
-    }
+    // connect client side with blockchain
+    render: function(){
+        //access  account and load account data
+        web3.eth.getCoinbase(function(err,account) {
+            if(err === null){
+                App.account = account;
+                $('#accountAddress').html("Your Acccount: " + account)
+            }
+        })
+    }   
+},
 
 
-}
 
 // inital our app when the window loads
 $(function(){
