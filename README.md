@@ -1,5 +1,5 @@
 # MahdiToken
-Token cryptocurrency built upon the Ethereum blockchain, using an Ethereum smart contract following the [ERC20 Token Standard](https://theethereum.wiki/w/index.php/ERC20_Token_Standard) 
+Token cryptocurrency built using an Ethereum smart contract following the [ERC20 Token Standard](https://theethereum.wiki/w/index.php/ERC20_Token_Standard) 
 
 
 
@@ -10,3 +10,4 @@ The complete Token sale contract is implemented in the file [mahdi.token/contrac
  More Info:
 [Writing tests for Solidity](https://truffleframework.com/docs/truffle/testing/writing-tests-in-javascript)
 [Examples of ERC20 tokens](https://eidoo.io/erc20-tokens-list/)
+
