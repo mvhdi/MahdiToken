@@ -1,0 +1,26 @@
+Moving tokens to your token sale contracts
+$ cd MahdiToken
+$ truffle console
+// deploy token sale contract
+$ MahdiTokenSale.deployed().then(function(i){tokenSale=i;})
+// undefined
+$ tokenSale
+// bunch of info
+// deploy token
+$ MahdiToken.deployed().then(function(i) {token=i;})
+$ token
+// move MahdiTokens from the MahdiToken contract to the MahdiTokenSale contract
+// first set the number of MahdiTokens that are available which are 750000
+$ tokensAvailable = 750000
+// get the admin account (which we transfer the tokens to for the sale)
+$ admin = web3.eth.accounts[0]
+// should see the admin account number which is the ganache account
+// transfer the tokens from the admin account
+$ token.transfer(tokenSale.address, tokensAvailable, {from: admin})
+// check by going to the site it should say you have 250000 MahdiTokens
+// also check account
+$ token.balanceOf(tokenSale.address)
+// output should be:  BigNumber { s: 1, e: 5, c: [ 750000 ] }
+// now switch to another account on metamask connected to ganache account, and buy some 
+//MahdiTokens from the token sale contract
+// if you get an unknown address issue just refresh the browser, also when you purchase refresh browser to see updated information.

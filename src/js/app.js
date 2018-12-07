@@ -54,9 +54,24 @@ App = {
                 App.contracts.MahdiToken.deployed().then(function(mahdiToken) {
                     console.log("Mahdi Token Address: ", mahdiToken.address);
                 });
+                App.listenForEvents();
                 return App.render(); 
             });
         })
+    },
+
+    // listen for sell events and refresh the page
+    listenForEvents: function() {
+        App.contracts.MahdiTokenSale.deployed().then(function(instance) {
+            instance.Sell({},{
+                fromBlock: 0,
+                toBlock: 'latest',
+            }).watch(function(error, event) {
+                console.log("event triggered", event);
+                App.render();
+            })
+        })
+
     },
 
     // connect client side with blockchain
@@ -96,7 +111,7 @@ App = {
             $('.tokens-available').html(App.tokensAvailable)
 
             //progress loader
-            var progressPercent =(Math.ceil(App.tokensSold / App.tokensAvailable))*100;
+            var progressPercent = Math.ceil((App.tokensSold / App.tokensAvailable)*100);
             $('#progress').css('width', progressPercent +'%');
 
 
@@ -131,8 +146,9 @@ App = {
         }).then(function(result) {
             console.log("Tokens bought...");
             $('form').trigger('reset') ;// reset number of tokens in form
-            $('#loader').hide();
-            $('#content').show();
+            // Wait for Sell event
+            // $('#loader').hide();
+            // $('#content').show();
         });
     } 
 },
