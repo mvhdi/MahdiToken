@@ -12,7 +12,7 @@ The complete ERC20 Token contract is implemented in the file [mahdi.token/contra
 
 The complete Token sale contract is implemented in the file [mahdi.token/contracts/MahdiTokenSale.sol](https://github.com/mvhdi/MahdiToken/blob/master/contracts/MahdiTokenSale.sol) , and the tests for this token sale contract are in the file [mahdi.token/test/MahdiTokenSale.js](https://github.com/mvhdi/MahdiToken/blob/master/test/MahdiTokenSale.js)
 
-Client side is is implemented in the file [mahdi.token/src/app.js] (https://github.com/mvhdi/MahdiToken/blob/master/src/app.js), which uses web3.js to allow you to buy tokens using metamask.
+Client side is is implemented in the file [mahdi.token/src/app.js] (https://github.com/mvhdi/MahdiToken/blob/master/src/js/app.js), which uses web3.js to allow you to buy tokens using metamask.
 
 
 Running MahdiToken on your local machine
