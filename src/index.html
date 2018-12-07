@@ -22,16 +22,16 @@
 					</p>
 				</div>
 				<div id="content" class="text-center">
+					<p>Introducing MahdiToken </p>
 					<p>
-						Introducing Mahdi Token !
 						Token price is <span class="token-price"> </span> Ether. You currently have <span class="mahdToken-balance"> </span> &nbsp; MahdiTokens.
 
 					</p>
 					<br/>
-					<form role="form" >
+					<form onSubmit="App.buyTokens(); return false;" role="form" >
 						<div class="form-group" >
 							<div class="input-group">
-								<input type="number" id="numberOfToken" value="1", min="1", pattern="[0-9]" class="form-control input-lg"> </input>
+								<input type="number" id="numberOfTokens" value="1", min="1", pattern="[0-9]" class="form-control input-lg"> </input>
 								<span class="input-group-btn">
 								<button type="submit" class="btn btn-primary btn-lg"> Buy Tokens</button>
 								</span>
@@ -47,6 +47,12 @@
 				<hr>
 				<p id="accountAddress"></p>
 				</div>	
+				<hr>
+				<p>NOTICE: The MahdiToken sale uses the Rinkeby Test Network with fake ether. Use the browser extension <a href="https://metamask.io/" target="_blank" >MetaMask</a> to connect to the test network, and participate in the ICO. Be patient if the test netowrk runs slowly. Download <a href="https://truffleframework.com/ganache" target="_blank" >Ganache</a> and connected with the custon RPC ganauche is using, and use a private key  from one of ganauache's fake ether accounts to connect and play with this token sale. (This was made for educational purposes)</p>
+
+				 
+				  
+
 			</div>		
 		</div>
 		
