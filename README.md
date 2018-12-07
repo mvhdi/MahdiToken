@@ -15,6 +15,10 @@ The complete Token sale contract is implemented in the file [mahdi.token/contrac
 Client side is is implemented in the file [mahdi.token/src/app.js] (https://github.com/mvhdi/MahdiToken/blob/master/src/js/app.js), which uses web3.js to allow you to buy tokens using metamask.
 
 
+Site
+------------------------------
+In the next release I'll host the ICO website on github pages (https://github.com/mahditoken/MahdiToken), and set it up so you can buy MahdiTokens  using MetaMask's Rinkeby Test network. You'll be able to see the transactions on the Ethereum blockchain using the site https://etherscan.io/. Once this is up and running you will not need to run MahdiToken on your local machine.
+
 Running MahdiToken on your local machine
 ------------------------------
 
