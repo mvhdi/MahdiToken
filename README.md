@@ -36,8 +36,8 @@ https://github.com/mvhdi/MahdiToken/network/dependencies
 Getting Set Up
 ------------------------------
 
-1. Fork this repository on GitHub.
-2. Clone *your forked repository* 
+
+2. Clone https://github.com/mvhdi/MahdiToken/releases/tag/MahdiToken 
 3. `cd MahdiToken`
 4. Startup the Ganache application on you computer
 5. run `truffle migrate --reset `
