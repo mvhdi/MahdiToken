@@ -60,37 +60,15 @@ Transfering  MahdiTokens to the token sale contracts
 ------------------------------
 16. `cd MahdiToken`
 17. `truffle console`
-
-
-// deploy token sale contract
-
-
+* deploy token sale contract
 18. `MahdiTokenSale.deployed().then(function(i){tokenSale=i;})`
-
-
-// see the output undefined
-
-
+* see the output undefined
 19.` tokenSale`
-
-
-// bunch of info
-
-
-// deploy token
-
-
+* deploy token
 20. ` MahdiToken.deployed().then(function(i) {token=i;})`
-
 21. `token`
-
-
-// move MahdiTokens from the MahdiToken contract to the MahdiTokenSale contract
-
-
-// first set the number of MahdiTokens that are available which are 750000
-
-
+* move MahdiTokens from the MahdiToken contract to the MahdiTokenSale contract
+* first set the number of MahdiTokens that are available which are 750000
 22. `$ tokensAvailable = 750000`
 
 
