@@ -1,6 +1,24 @@
 # MahdiToken
 Token cryptocurrency built using an Ethereum smart contract following the [ERC20 Token Standard](https://theethereum.wiki/w/index.php/ERC20_Token_Standard) 
 
+Table of contents
+---------
+
+<!--ts-->
+   * [Table of contents](#table-of-contents)
+   * [Motivations](#motivations)
+   * [Main files](#main-files)
+   * [Site](#site)
+   * [Running MahdiToken on your local machine](#running-mahditoken-on-your-local-machine)
+   * [Prerequisites](#prerequisites)
+   * [Getting Set Up](#getting-set-up)
+   * [Running the MahdiToken Sale](#running-the-mahditoken-sale)
+   * [Pictures](#pictures)
+   * [More Info](#more-info)
+<!--te-->
+
+
+
 Motivations
 ------------------------------
 Learn how Ethereum smart contracts work, and to build my own cryptocurrency and a ICO website for it.
@@ -21,8 +39,9 @@ In the next release I'll host the ICO website on github pages (https://github.co
 
 Running MahdiToken on your local machine
 ------------------------------
-
 https://github.com/mvhdi/MahdiToken/network/dependencies
+
+
 ### Prerequisites
 1. install node.js  `brew install node`
 2. install truffle framework from (truffleframework.com) or ` npm install -g truffle`
@@ -74,7 +93,7 @@ Transfering  MahdiTokens to the token sale contracts
 23. `admin = web3.eth.accounts[0]`
 * should see the admin account number which is the ganache account
 * transfer the tokens from the admin account
-24. `token.transfer(tokenSale.address, tokensAvailable, {from: admin}) 
+24. `token.transfer(tokenSale.address, tokensAvailable, {from: admin}) `
 * check the account, output should be:  BigNumber { s: 1, e: 5, c: [ 750000 ] }
 25. `token.balanceOf(tokenSale.address)`
 * go to the token sale site 
@@ -83,13 +102,12 @@ Transfering  MahdiTokens to the token sale contracts
 * now switch to the account Ganache 2 on metamask, and click on the button to buy some MahdiTokens
 * if you get an unknown address issue just refresh the browser, also when you purchase refresh browser to see updated information.
 
-
+Pictures
+------
+![](10.jpg)
+![](11.jpg)
+![](12.jpg)
 ![](1.gif)
-
-
-
-
-
 
 
 
