@@ -62,49 +62,26 @@ Transfering  MahdiTokens to the token sale contracts
 17. `truffle console`
 * deploy token sale contract
 18. `MahdiTokenSale.deployed().then(function(i){tokenSale=i;})`
-* see the output undefined
-19.` tokenSale`
+* see the output undefined 
+19. ` tokenSale`
 * deploy token
 20. ` MahdiToken.deployed().then(function(i) {token=i;})`
 21. `token`
 * move MahdiTokens from the MahdiToken contract to the MahdiTokenSale contract
 * first set the number of MahdiTokens that are available which are 750000
 22. `$ tokensAvailable = 750000`
-
-
-// get the admin account (which we transfer the tokens from for the sale)
-
-
+* get the admin account (which we transfer the tokens from for the sale)
 23. `admin = web3.eth.accounts[0]`
-
-
-// should see the admin account number which is the ganache account
-
-
-// transfer the tokens from the admin account
-
-
+* should see the admin account number which is the ganache account
+* transfer the tokens from the admin account
 24. `token.transfer(tokenSale.address, tokensAvailable, {from: admin}) 
-
-`
-// check the account, output should be:  BigNumber { s: 1, e: 5, c: [ 750000 ] }
-
-
+* check the account, output should be:  BigNumber { s: 1, e: 5, c: [ 750000 ] }
 25. `token.balanceOf(tokenSale.address)`
-
-
-// go to the token sale site 
-
-
+* go to the token sale site 
 26. `npm run dev`
-
-
 27. Switch to the account Ganache 1, it should say you have 250000 MahdiTokens total is a million tokens, and 750k were provisoned for the token sale.
-
-
-// now switch to the account Ganache 2 on metamask, and click on the button to buy some MahdiTokens
-
-// if you get an unknown address issue just refresh the browser, also when you purchase refresh browser to see updated information.
+* now switch to the account Ganache 2 on metamask, and click on the button to buy some MahdiTokens
+* if you get an unknown address issue just refresh the browser, also when you purchase refresh browser to see updated information.
 
 
 ![](1.gif)
